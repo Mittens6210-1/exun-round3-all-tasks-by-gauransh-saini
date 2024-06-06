@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">writeBlog.com</div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/article/">All Articles</a></li>
+                <li><a href="/article/create">Create Article</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="article-s">
+        <% articles.forEach(article => { %>
+            <div class="for-s">
+                <%= article.name %>
+                <span>
+                    <%= article.postedAt.toLocaleDateString() %>
+                </span>
+                <span>
+                    <%= article.postedBy %>
+                </span>
+                <span>
+                    id: 
+                    <%= article.id %>
+                </span>
+                <a href="/article/<%= article.id %>" class="view">View</a>
+            </div>
+        <% }) %>
+    </section>
+</body>
+</html>

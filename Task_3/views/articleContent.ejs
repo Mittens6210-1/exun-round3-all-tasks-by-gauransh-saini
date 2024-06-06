@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">writeBlog.com</div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/article/">All Articles</a></li>
+                <li><a href="/article/create">Create Article</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="articleCont-s">
+        <h1>
+            <%= article.name %>
+        </h1>
+        <h2> By: 
+            <%= article.postedBy %>
+        </h2>
+        <h2>
+            Posted At:
+            <%= article.postedAt.toLocaleDateString() %>
+        </h2>
+        <h2>
+            Article Id:
+            <%= article.id %>
+        </h2>
+        <form action="/article/<%= article.id %>/delete?_method=DELETE" method="post">
+            <button type="submit" class="btn">Delete</button>
+        </form>
+
+        <a type="submit" class="btn-e" href="/article/<%= article.id %>/update?_method_PUT">Edit</a>
+        <h2>
+            Last Updated At:
+            <%= article.lastUpdatedAt.toLocaleDateString() %>
+        </h2>
+        <p>
+            <%= article.content %>
+        </p>
+
+    </section>
+    
+</body>
+</html>
